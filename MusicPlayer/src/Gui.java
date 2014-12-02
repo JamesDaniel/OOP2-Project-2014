@@ -19,7 +19,7 @@ public class Gui extends JFrame{
 		setSize(610,100);
 		setResizable(false);
 		setLocation(300,200);
-	    setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);  // if I'm adding a window listener then change this to JFrame.DO_NOTHING_ON_CLOSE
+	    setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE);  
 		
 		Container c1 = getContentPane();
 		c1.setLayout(new FlowLayout());
@@ -49,6 +49,8 @@ public class Gui extends JFrame{
 		playTime = new JLabel("00:00-00:00");
 		playPause.addActionListener(new PlayPauseBtnListener(playPause,image1,image2,playTime));  // had to move this down here because I can't pass the JLabel by reference if it isn't created yet
 		c1.add(playTime);
+		
+		addWindowListener(new GuiWindowListener());
 	}
 	public void createFileMenu(){
 		file = new JMenu("File");

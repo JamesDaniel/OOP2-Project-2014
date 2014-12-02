@@ -28,6 +28,7 @@ public class FileMenuOpenListener implements ActionListener{
 			if (tempFile.getName().endsWith(".mp3"))
 			{
 				file1 = fc.getSelectedFile();
+			//	System.out.println(file1.getPath());
 				gui.setTitle("Music Player - " + file1.getName().substring(0,file1.getName().length()-4));
 				Music.stopPlay();
 			}
