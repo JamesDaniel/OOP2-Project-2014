@@ -1,0 +1,203 @@
+import javax.swing.*;
+import java.io.*;
+import javax.swing.filechooser.*;
+import javax.sound.sampled.*;
+import java.util.*;
+import javazoom.spi.mpeg.sampled.file.MpegAudioFileReader;   // from http://www.javazoom.net/mp3spi/sources.html
+                                                            //  description http://www.javazoom.net/mp3spi/docs/doc1.9.4/javazoom/spi/mpeg/sampled/file/MpegAudioFileReader.html
+import javax.sound.sampled.spi.AudioFileReader;  
+import org.tritonus.share.sampled.file.TAudioFileReader;     // from http://www.java2s.com/Code/Jar/t/Downloadtritonusutilsjar.htm
+                                                            //  description http://joe.emenaker.com/Javadoc/mp3sp.1.6/org/tritonus/sampled/file/TAudioFileReader.html
+                                                            
+
+public class MusicManager {
+	public boolean checkPlayCondition;
+	private boolean fileExists;
+	private ImageIcon image1;
+	private ImageIcon image2;
+	private JButton playStopBtn;
+	private JLabel playTime;
+	public File file;
+	private Gui gui;
+	public int playDuration;
+	public MusicManager(ImageIcon image1,ImageIcon image2,JButton playStopBtn, JLabel playTime, Gui gui)
+	{
+		checkPlayCondition = false;
+		fileExists = false;
+		this.image1 = image1;
+		this.image2 = image2;
+		this.playStopBtn = playStopBtn;
+		this.playTime = playTime;
+		this.gui = gui;
+	}
+	public void closeProgramAction()
+	{
+		int answer;
+		if (fileExists)
+		{
+			answer = JOptionPane.showConfirmDialog(null,"Do you want to remember the last song you played?",
+		    	                                        "",
+		        	                                    JOptionPane.YES_NO_CANCEL_OPTION,
+		            	                                JOptionPane.INFORMATION_MESSAGE);
+			if (answer == JOptionPane.YES_OPTION)
+			{
+				// some code
+				System.exit(0);
+			}
+			else if (answer == JOptionPane.NO_OPTION)
+			{
+				System.exit(0);
+			}
+			else
+			{
+				
+			}
+		}
+		else
+		{
+			System.exit(0);
+		}
+	}
+	public FileInputStream getFileInputStream(File file)
+	{
+		FileInputStream fis = null;
+		try
+		{
+			fis = new FileInputStream(file);
+		}
+		catch (Exception ex)
+		{
+			System.out.println("no file selected");
+		}
+		return fis;
+	}
+	public boolean getCheckPlayCondition()
+	{
+		return checkPlayCondition;
+	}
+	public void setCheckPlayCondition(boolean condition)
+	{
+		checkPlayCondition = condition;
+	}
+	public void playMusic()
+	{
+		System.out.println("test play music");
+		try
+		{
+			Thread t1 = new Thread(new Music(this));  // this is where the music thread is instantiated
+			t1.start();
+			Thread t2 = new Thread(new PlayTimeLabel(this));
+			t2.start();
+			// I know I'm not ending the threads properly but its a bit too much to learn right now
+		}
+		catch (Exception ex)
+		{
+			
+		}
+	}
+	public void startUpdateLabel()
+	{
+		System.out.println("test start up label");
+	}
+	public void changeBtnImage(ImageIcon image)
+	{
+		playStopBtn.setIcon(image);
+	}
+	public ImageIcon getImage1()
+	{
+		return image1;
+	}
+	public ImageIcon getImage2()
+	{
+		return image2;
+	}
+	public void stopPlay()  // this method is kind of redundant because setCheckPlayCondition(false) will always be called with it. This is just to be explicite
+	{
+		setCheckPlayCondition(false);
+	}
+	public File getFile()
+	{
+		return file;
+	}
+	public void setFile(File file)
+	{
+		this.file = file;
+		this.fileExists = true;
+	}
+	public void setTitle(String newTitle)
+	{
+		gui.setTitle(newTitle);
+	}
+	public void openFile()
+	{
+		JFileChooser fc = new JFileChooser();
+		fc.setFileFilter(new FileNameExtensionFilter("mp3 files", "mp3"));
+		int answer =  fc.showOpenDialog(null);
+		if (answer == JFileChooser.APPROVE_OPTION &&
+			fc.getSelectedFile().getName().endsWith(".mp3"))
+		{
+			setFile(fc.getSelectedFile());
+			setTitle("Music Player - " + getFile().
+				                         getName().
+				                         substring(0,getFile().getName().length()-4));
+		    stopPlay(); // stopPlay() sets 'checkPlayCondition' to false. This is done here just to be explicite.
+		    //checkPlayCondition = false;       this is not allowing the thread to sleep for some reason
+		    
+		    try   // this is not a perfect solution
+		    {
+		    	Thread.sleep(1000);
+		    }
+		    catch (Exception ex){}
+		    // the thread classes intermittently check the 'checkPlayCondition' attribute to decide
+		    // weather to continue executing. If they aren't given enough time to check that attribute
+		    // before another song is played then they will execute at the same time.
+		    // TO DO!!!!!
+		    
+		    
+		    
+		    playMusic();
+			startUpdateLabel();
+			changeBtnImage(getImage2());
+			setCheckPlayCondition(true);
+			
+			
+		}
+		else if (answer == JFileChooser.APPROVE_OPTION &&
+			     !fc.getSelectedFile().getName().endsWith(".mp3"))
+		{
+			// to do WRITE CODE HERE
+			System.out.println("You picked a file but it was not an mp3.");
+		}
+		else
+		{
+			
+		}
+	}
+	public boolean getFileExists()
+	{
+		return fileExists;
+	}
+	public void setPlayTimeLabelText(String newText)
+	{
+		playTime.setText(newText);
+	}
+	public Long getSongFileLength()
+	{
+		
+		Long duration = null;
+		try
+		{
+			AudioFileFormat baseFileFormat = new MpegAudioFileReader().getAudioFileFormat(file);   // this code is from http://stackoverflow.com/questions/3140992/read-out-time-length-duration-of-an-mp3-song-in-java
+			Map properties = baseFileFormat.properties();
+        	duration = (Long) properties.get("duration");
+        	return duration;
+		}
+		catch (Exception ex)
+		{
+			
+		}
+		// this system out is never being called because the duration is returned before this
+		System.out.println("This is the duration: " + duration);
+		return duration;
+	}
+}

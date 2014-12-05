@@ -7,24 +7,28 @@
 		<output_path>classes\</output_path>
 		<source_path>src\</source_path>
 		<jdkprofile_ref>JDK version 1.7.0_67</jdkprofile_ref>
-		<compiler_ref/>
+		<compiler_ref>&lt;Default&gt;</compiler_ref>
 		<ant_ref/>
 	</settings>
 	<ant_events/>
-	<run_items/>
+	<run_items>
+		<item run="MusicPlayer"/>
+	</run_items>
 	<runtimes>
 		<runtime>
 			<label>&lt;Default&gt;</label>
-			<application_ref/>
-			<applet_ref/>
-			<debugger_ref/>
+			<application_ref>&lt;Default&gt;</application_ref>
+			<applet_ref>&lt;Default&gt;</applet_ref>
+			<debugger_ref>&lt;Default&gt;</debugger_ref>
 			<param/>
 			<run>MusicPlayer</run>
 			<verify>true</verify>
 		</runtime>
 	</runtimes>
 	<libraries>
-		<library_ref>javazoom</library_ref>
+		<library_ref>jzoom</library_ref>
+		<library_ref>mp3</library_ref>
+		<library_ref>tritonus</library_ref>
 	</libraries>
 	<files>
 		<include>
@@ -52,7 +56,7 @@
 				<folder>src</folder>
 			</fileitem>
 			<fileitem>
-				<path>src\ListenerClass.java</path>
+				<path>src\GuiWindowListener.java</path>
 				<folder>src</folder>
 			</fileitem>
 			<fileitem>
@@ -60,7 +64,7 @@
 				<folder>src</folder>
 			</fileitem>
 			<fileitem>
-				<path>src\MusicListener.java</path>
+				<path>src\MusicManager.java</path>
 				<folder>src</folder>
 			</fileitem>
 			<fileitem>
@@ -68,11 +72,11 @@
 				<folder>src</folder>
 			</fileitem>
 			<fileitem>
-				<path>src\PlayPauseBtnListener.java</path>
+				<path>src\PlayStopBtnListener.java</path>
 				<folder>src</folder>
 			</fileitem>
 			<fileitem>
-				<path>src\UpdateLabel.java</path>
+				<path>src\PlayTimeLabel.java</path>
 				<folder>src</folder>
 			</fileitem>
 		</include>

@@ -1,13 +1,13 @@
 import java.awt.event.*;
 
 class FileMenuExitListener implements ActionListener{
-	
-	public FileMenuExitListener()
+	private MusicManager manager;
+	public FileMenuExitListener(MusicManager manager)
 	{
-		
+		this.manager = manager;
 	}
 	public void actionPerformed(ActionEvent event)
 	{
-		System.exit(0);
+		manager.closeProgramAction();
 	}
 }

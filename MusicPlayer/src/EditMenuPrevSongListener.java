@@ -1,13 +1,13 @@
 import java.awt.event.*;
 
 class EditMenuPrevSongListener implements ActionListener{
-	
-	public EditMenuPrevSongListener()
+	public EditMenuPrevSongListener(MusicManager manager)
 	{
 		
 	}
 	public void actionPerformed(ActionEvent event)
 	{
-		System.out.println("go back to the previous song");
+		// to do WRITE CODE HERE
+		System.out.println("edit menu previous song");
 	}
 }

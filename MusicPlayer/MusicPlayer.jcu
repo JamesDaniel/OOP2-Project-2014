@@ -9,6 +9,9 @@
 			<label>MusicPlayer</label>
 			<showfiles>false</showfiles>
 			<folderitem>
+				<path>classes</path>
+			</folderitem>
+			<folderitem>
 				<path>src</path>
 			</folderitem>
 		</project>
@@ -27,45 +30,57 @@
 			<active>true</active>
 		</docitem>
 		<docitem>
-			<path>src\Music.java</path>
+			<path>src\PlayStopBtnListener.java</path>
 			<source>true</source>
 			<index>2</index>
 			<active>false</active>
 		</docitem>
 		<docitem>
-			<path>src\PlayPauseBtnListener.java</path>
+			<path>src\GuiWindowListener.java</path>
 			<source>true</source>
 			<index>3</index>
 			<active>false</active>
 		</docitem>
 		<docitem>
-			<path>src\FileMenuOpenListener.java</path>
+			<path>src\Music.java</path>
 			<source>true</source>
 			<index>4</index>
 			<active>false</active>
 		</docitem>
 		<docitem>
-			<path>src\FileMenuExitListener.java</path>
+			<path>src\PlayTimeLabel.java</path>
 			<source>true</source>
 			<index>5</index>
 			<active>false</active>
 		</docitem>
 		<docitem>
-			<path>src\EditMenuNextSongListener.java</path>
+			<path>src\FileMenuOpenListener.java</path>
 			<source>true</source>
 			<index>6</index>
 			<active>false</active>
 		</docitem>
 		<docitem>
-			<path>src\EditMenuPrevSongListener.java</path>
+			<path>src\EditMenuNextSongListener.java</path>
 			<source>true</source>
 			<index>7</index>
 			<active>false</active>
 		</docitem>
 		<docitem>
-			<path>src\UpdateLabel.java</path>
+			<path>src\EditMenuPrevSongListener.java</path>
 			<source>true</source>
 			<index>8</index>
+			<active>false</active>
+		</docitem>
+		<docitem>
+			<path>src\FileMenuExitListener.java</path>
+			<source>true</source>
+			<index>9</index>
+			<active>false</active>
+		</docitem>
+		<docitem>
+			<path>src\MusicManager.java</path>
+			<source>true</source>
+			<index>10</index>
 			<active>false</active>
 		</docitem>
 	</open_files>

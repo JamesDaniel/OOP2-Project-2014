@@ -1,13 +1,13 @@
 import java.awt.event.*;
 
 class EditMenuNextSongListener implements ActionListener{
-	
-	public EditMenuNextSongListener()
+	public EditMenuNextSongListener(MusicManager manager)
 	{
 		
 	}
 	public void actionPerformed(ActionEvent event)
 	{
-		System.out.println("go to the next song");
+		// to do WRITE CODE HERE
+		System.out.println("edit menu next song");
 	}
 }
