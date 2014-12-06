@@ -1,5 +1,8 @@
 //https://www.youtube.com/watch?v=Bws9aQuAcdg
 //Java Programming Tutorial - 80 - Writing to Files
+/**This is an instantiable PlayLists class.
+ @author James McGarr
+ @version 1.0 */ 
 
 import java.io.*;
 import java.lang.*;
@@ -8,11 +11,17 @@ import java.util.*;
 public class PlayLists {
     	private Formatter x;
     	private MusicManager manager;
+    	
+    	/** multi argument constructor method
+    	*@param manager The object which this object was instantiated from. */
     	PlayLists(MusicManager manager)
     	{
     		this.manager = manager;
     		//System.out.println(manager.getFile().getPath());
     	}
+    	/** mutator method to create or open a .txt file
+    	 **/
+
     	public void openFile(){
     		try{
     			x = new Formatter("song.txt");
@@ -22,9 +31,13 @@ public class PlayLists {
     			System.out.println("Failed to write song file.");
     		}
     	}
+    	/** mutator method to add a record to the text file created by openFile() method
+    	 */
     	public void addRecords(){
     		x.format("%s", manager.getFile().getPath());
     	}
+    	/** mutator method to close a file after using the addRecords() method
+    	 */
     	public void closeFile(){
     		x.close();
     	}
@@ -41,4 +54,4 @@ public class PlayLists {
     		else
     			return null;
     	}
-}
+}//end class

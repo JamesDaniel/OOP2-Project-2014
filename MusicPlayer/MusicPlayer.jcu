@@ -24,7 +24,7 @@
 			<path>src\Gui.java</path>
 			<source>true</source>
 			<index>1</index>
-			<active>false</active>
+			<active>true</active>
 		</docitem>
 		<docitem>
 			<path>src\PlayStopBtnListener.java</path>
@@ -78,7 +78,7 @@
 			<path>src\MusicManager.java</path>
 			<source>true</source>
 			<index>10</index>
-			<active>true</active>
+			<active>false</active>
 		</docitem>
 		<docitem>
 			<path>src\PlayLists.java</path>

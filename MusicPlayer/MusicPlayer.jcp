@@ -6,7 +6,7 @@
 		<root_path>\</root_path>
 		<output_path>classes\</output_path>
 		<source_path>src\</source_path>
-		<jdkprofile_ref>JDK version 1.7.0_67</jdkprofile_ref>
+		<jdkprofile_ref>JDK version 1.8.0_05</jdkprofile_ref>
 		<compiler_ref>&lt;Default&gt;</compiler_ref>
 		<ant_ref/>
 	</settings>
@@ -26,8 +26,8 @@
 		</runtime>
 	</runtimes>
 	<libraries>
-		<library_ref>jzoom</library_ref>
-		<library_ref>mp3</library_ref>
+		<library_ref>jlayer</library_ref>
+		<library_ref>mp3s</library_ref>
 		<library_ref>tritonus</library_ref>
 	</libraries>
 	<files>

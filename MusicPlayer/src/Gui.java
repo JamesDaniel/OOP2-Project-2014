@@ -45,7 +45,7 @@ public class Gui extends JFrame{
 		playStopBtn.addActionListener(new PlayStopBtnListener(manager));
 		addWindowListener(new GuiWindowListener(manager));
 	}
-	public void createFileMenu(){
+	public void createFileMenu(){  // This code is from my lecturer John Walsh
 		file = new JMenu("File");
 		JMenuItem item;
 		item = new JMenuItem("Open");
@@ -56,7 +56,7 @@ public class Gui extends JFrame{
 		item.addActionListener(new FileMenuExitListener(manager));
 		file.add(item);
 	}
-	public void createEditMenu(){
+	public void createEditMenu(){  // This code is from my lecturer John Walsh
 		edit = new JMenu("Edit");
 		JMenuItem item;
 		item = new JMenuItem("Next Song - NOT WORKING YET");
