@@ -12,7 +12,7 @@ public class PlayTimeLabel implements Runnable{
 	}
 	public void run()  // unknown thread anomaly. Two threads are created when the thread oject is created.
 	{
-		System.out.println("Test 'update music time' label thread run");
+		System.out.println("t1.run() CALLED");
 		try
 		{
 			

@@ -59,11 +59,11 @@ public class Gui extends JFrame{
 	public void createEditMenu(){
 		edit = new JMenu("Edit");
 		JMenuItem item;
-		item = new JMenuItem("Next Song");
+		item = new JMenuItem("Next Song - NOT WORKING YET");
 		item.addActionListener(new EditMenuNextSongListener(manager));
 		edit.add(item);
 		
-		item = new JMenuItem("Prev Song");
+		item = new JMenuItem("Prev Song - NOT WORKING YET");
 		item.addActionListener(new EditMenuPrevSongListener(manager));
 		edit.add(item);
 	}

@@ -14,8 +14,10 @@ public class PlayStopBtnListener implements ActionListener{
 			{
 				manager.openFile();
 			}
+			
 			if (manager.getFileExists())
 			{
+				
 				manager.playMusic();
 				manager.startUpdateLabel();
 				manager.changeBtnImage(manager.getImage2());
@@ -24,7 +26,6 @@ public class PlayStopBtnListener implements ActionListener{
 		}
 		else
 		{
-		//	System.out.println("test2");
 			manager.stopPlay();
 			manager.changeBtnImage(manager.getImage1());
 			manager.setCheckPlayCondition(false);

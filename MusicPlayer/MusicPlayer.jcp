@@ -72,6 +72,10 @@
 				<folder>src</folder>
 			</fileitem>
 			<fileitem>
+				<path>src\PlayLists.java</path>
+				<folder>src</folder>
+			</fileitem>
+			<fileitem>
 				<path>src\PlayStopBtnListener.java</path>
 				<folder>src</folder>
 			</fileitem>

@@ -9,9 +9,6 @@
 			<label>MusicPlayer</label>
 			<showfiles>false</showfiles>
 			<folderitem>
-				<path>classes</path>
-			</folderitem>
-			<folderitem>
 				<path>src</path>
 			</folderitem>
 		</project>
@@ -27,7 +24,7 @@
 			<path>src\Gui.java</path>
 			<source>true</source>
 			<index>1</index>
-			<active>true</active>
+			<active>false</active>
 		</docitem>
 		<docitem>
 			<path>src\PlayStopBtnListener.java</path>
@@ -81,6 +78,12 @@
 			<path>src\MusicManager.java</path>
 			<source>true</source>
 			<index>10</index>
+			<active>true</active>
+		</docitem>
+		<docitem>
+			<path>src\PlayLists.java</path>
+			<source>true</source>
+			<index>11</index>
 			<active>false</active>
 		</docitem>
 	</open_files>

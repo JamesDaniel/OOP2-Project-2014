@@ -11,7 +11,7 @@ public class Music extends Player implements Runnable{
 	}
 	public void run()
 	{
-		System.out.println("Test thread run");
+		System.out.println("t1.run() CALLED");
 		try
 		{
 			while (super.play(1))

@@ -20,6 +20,7 @@ public class MusicManager {
 	public File file;
 	private Gui gui;
 	public int playDuration;
+	private PlayLists p1;
 	public MusicManager(ImageIcon image1,ImageIcon image2,JButton playStopBtn, JLabel playTime, Gui gui)
 	{
 		checkPlayCondition = false;
@@ -29,9 +30,20 @@ public class MusicManager {
 		this.playStopBtn = playStopBtn;
 		this.playTime = playTime;
 		this.gui = gui;
+		this.file = PlayLists.readFile();
+		if (file != null)
+		{
+			checkPlayCondition = true;
+			fileExists = true;
+			this.setTitle("Music Player - " + getFile().
+				                              getName().
+				                              substring(0,getFile().getName().length()-4));
+		}
+		//System.out.println(getFile().getPath());
 	}
 	public void closeProgramAction()
 	{
+		System.out.println("manager.closeProgramAction() CALLED");
 		int answer;
 		if (fileExists)
 		{
@@ -42,6 +54,10 @@ public class MusicManager {
 			if (answer == JOptionPane.YES_OPTION)
 			{
 				// some code
+				p1 = new PlayLists(this);
+				p1.openFile();
+				p1.addRecords();
+				p1.closeFile();
 				System.exit(0);
 			}
 			else if (answer == JOptionPane.NO_OPTION)
@@ -60,6 +76,7 @@ public class MusicManager {
 	}
 	public FileInputStream getFileInputStream(File file)
 	{
+		System.out.println("manager.getFileInputStream() CALLED");
 		FileInputStream fis = null;
 		try
 		{
@@ -73,15 +90,17 @@ public class MusicManager {
 	}
 	public boolean getCheckPlayCondition()
 	{
+		System.out.println("manager.getCheckPlayCondition() CALLED");
 		return checkPlayCondition;
 	}
 	public void setCheckPlayCondition(boolean condition)
 	{
+		System.out.println("manager.setCheckPlayCondition() CALLED");
 		checkPlayCondition = condition;
 	}
 	public void playMusic()
 	{
-		System.out.println("test play music");
+		System.out.println("manager.playMusic() CALLED");
 		try
 		{
 			Thread t1 = new Thread(new Music(this));  // this is where the music thread is instantiated
@@ -97,39 +116,47 @@ public class MusicManager {
 	}
 	public void startUpdateLabel()
 	{
-		System.out.println("test start up label");
+		// Never got around to starting the label thread (t2) here.
 	}
 	public void changeBtnImage(ImageIcon image)
 	{
+		System.out.println("manager.changeBtnImage() CALLED");
 		playStopBtn.setIcon(image);
 	}
 	public ImageIcon getImage1()
 	{
+		System.out.println("manager.getImage1() CALLED");
 		return image1;
 	}
 	public ImageIcon getImage2()
 	{
+		System.out.println("manager.getImage2() CALLED");
 		return image2;
 	}
 	public void stopPlay()  // this method is kind of redundant because setCheckPlayCondition(false) will always be called with it. This is just to be explicite
 	{
+		System.out.println("manager.stopPlay() CALLED");
 		setCheckPlayCondition(false);
 	}
 	public File getFile()
 	{
+		System.out.println("manager.getFile() CALLED");
 		return file;
 	}
 	public void setFile(File file)
 	{
+		System.out.println("manager.setFile() CALLED");
 		this.file = file;
 		this.fileExists = true;
 	}
 	public void setTitle(String newTitle)
 	{
+		System.out.println("manager.setTitle() CALLED");
 		gui.setTitle(newTitle);
 	}
 	public void openFile()
 	{
+		System.out.println("manager.openFile() CALLED");
 		JFileChooser fc = new JFileChooser();
 		fc.setFileFilter(new FileNameExtensionFilter("mp3 files", "mp3"));
 		int answer =  fc.showOpenDialog(null);
@@ -175,15 +202,17 @@ public class MusicManager {
 	}
 	public boolean getFileExists()
 	{
+		System.out.println("manager.getFileExists() CALLED");
 		return fileExists;
 	}
 	public void setPlayTimeLabelText(String newText)
 	{
+		System.out.println("manager.setPlayTimeLabelText() CALLED");
 		playTime.setText(newText);
 	}
 	public Long getSongFileLength()
 	{
-		
+		System.out.println("manager.getSongFileLength() CALLED");
 		Long duration = null;
 		try
 		{
