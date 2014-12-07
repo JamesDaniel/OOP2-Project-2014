@@ -1,3 +1,4 @@
+//PlayLists.java
 //https://www.youtube.com/watch?v=Bws9aQuAcdg
 //Java Programming Tutorial - 80 - Writing to Files
 /**This is an instantiable PlayLists class.
@@ -22,6 +23,16 @@ public class PlayLists {
     	/** mutator method to create or open a .txt file
     	 **/
 
+        
+	/*****************************************************
+*    Title:  Java Programming Tutorial - 80 - Writing to Files , line 36-67
+*    Author: thenewboston
+*    Site owner/sponsor:  youtube.com
+*    Date: Uploaded on Oct 23, 2009
+*    Code version:  
+*    Availability:  https://www.youtube.com/watch?v=Bws9aQuAcdg
+*    Modified:  Code refactored (code used)
+*****************************************************/
     	public void openFile(){
     		try{
     			x = new Formatter("song.txt");

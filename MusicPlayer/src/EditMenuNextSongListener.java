@@ -1,9 +1,11 @@
+//EditMenuNextSongListener.java
 import java.awt.event.*;
 
 class EditMenuNextSongListener implements ActionListener{
+	private MusicManager manager;
 	public EditMenuNextSongListener(MusicManager manager)
 	{
-		
+		this.manager = manager;
 	}
 	public void actionPerformed(ActionEvent event)
 	{

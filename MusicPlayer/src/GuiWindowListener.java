@@ -1,7 +1,8 @@
+//GuiWindowListener.java
 import java.awt.event.*;
 
 public class GuiWindowListener extends WindowAdapter{
-	private int answer;
+	private int answer;// this line is probably from an older version of my code
 	private MusicManager manager;
 	GuiWindowListener(MusicManager manager)
 	{

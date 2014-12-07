@@ -1,5 +1,15 @@
+// PlayTimeLabel.java
 
-// I learned how to create threads like this from https://docs.oracle.com/javase/tutorial/essential/concurrency/runthread.html
+	/*****************************************************
+*    Title:  jl1.0.jar , line 13-91
+*    Author: The Java Tutorials
+*    Site owner/sponsor:  https://docs.oracle.com
+*    Date: 07/12/2014 10:00:00
+*    Code version:  1.0
+*    Availability:  https://docs.oracle.com/javase/tutorial/essential/concurrency/runthread.html
+*    Modified:  Code learned (This is where I learned to make a thread this way)
+*****************************************************/
+
 public class PlayTimeLabel implements Runnable{
 	private MusicManager manager;
 	private String minutes;
@@ -12,7 +22,7 @@ public class PlayTimeLabel implements Runnable{
 	}
 	public void run()  // unknown thread anomaly. Two threads are created when the thread oject is created.
 	{
-		System.out.println("t1.run() CALLED");
+		System.out.println("t2.run() CALLED");
 		try
 		{
 			

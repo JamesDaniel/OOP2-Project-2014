@@ -1,13 +1,30 @@
+//MusicManager.java
 import javax.swing.*;
 import java.io.*;
 import javax.swing.filechooser.*;
 import javax.sound.sampled.*;
 import java.util.*;
-import javazoom.spi.mpeg.sampled.file.MpegAudioFileReader;   // from http://www.javazoom.net/mp3spi/sources.html
-                                                            //  description http://www.javazoom.net/mp3spi/docs/doc1.9.4/javazoom/spi/mpeg/sampled/file/MpegAudioFileReader.html
+import javazoom.spi.mpeg.sampled.file.MpegAudioFileReader;  
+	/*****************************************************
+*    Title:  MP3SPI 1.9.5 , line 7,17
+*    Author: JLayer
+*    Site owner/sponsor:  http://www.javazoom.net/
+*    Date: Last Update : 11/2010
+*    Code version:  1.9.5
+*    Availability:  http://www.javazoom.net/mp3spi/sources.html
+*    Modified:  Code used (this is where i got this library)
+*****************************************************/
 import javax.sound.sampled.spi.AudioFileReader;  
-import org.tritonus.share.sampled.file.TAudioFileReader;     // from http://www.java2s.com/Code/Jar/t/Downloadtritonusutilsjar.htm
-                                                            //  description http://joe.emenaker.com/Javadoc/mp3sp.1.6/org/tritonus/sampled/file/TAudioFileReader.html
+import org.tritonus.share.sampled.file.TAudioFileReader;     // from 
+	/*****************************************************
+*    Title:  tritonus/tritonus-utils.jar.zip( 94 k) , line 18
+*    Author: tritonus
+*    Site owner/sponsor:  http://www.java2s.com/
+*    Date: Last Update : 
+*    Code version:  
+*    Availability:  http://www.java2s.com/Code/Jar/t/Downloadtritonusutilsjar.htm
+*    Modified:  Code used (this is where i got this library)
+*****************************************************/                                                           
                                                             
 
 public class MusicManager {
@@ -33,7 +50,6 @@ public class MusicManager {
 		this.file = PlayLists.readFile();
 		if (file != null)
 		{
-			checkPlayCondition = true;
 			fileExists = true;
 			this.setTitle("Music Player - " + getFile().
 				                              getName().
@@ -90,7 +106,7 @@ public class MusicManager {
 	}
 	public boolean getCheckPlayCondition()
 	{
-		System.out.println("manager.getCheckPlayCondition() CALLED");
+	//	System.out.println("manager.getCheckPlayCondition() CALLED");
 		return checkPlayCondition;
 	}
 	public void setCheckPlayCondition(boolean condition)
@@ -107,7 +123,7 @@ public class MusicManager {
 			t1.start();
 			Thread t2 = new Thread(new PlayTimeLabel(this));
 			t2.start();
-			// I know I'm not ending the threads properly but its a bit too much to learn right now
+			// I know I'm not ending the threads properly but I think its a bit too much to learn right now
 		}
 		catch (Exception ex)
 		{
@@ -178,7 +194,6 @@ public class MusicManager {
 		    // the thread classes intermittently check the 'checkPlayCondition' attribute to decide
 		    // weather to continue executing. If they aren't given enough time to check that attribute
 		    // before another song is played then they will execute at the same time.
-		    // TO DO!!!!!
 		    
 		    
 		    
@@ -207,16 +222,25 @@ public class MusicManager {
 	}
 	public void setPlayTimeLabelText(String newText)
 	{
-		System.out.println("manager.setPlayTimeLabelText() CALLED");
+	//	System.out.println("manager.setPlayTimeLabelText() CALLED");
 		playTime.setText(newText);
 	}
+		/*****************************************************
+*    Title:  Read out Time/Length/Duration of an Mp3 song in Java , line 240-246
+*    Author: Mardo Del Cid
+*    Site owner/sponsor:  stackoverflow.com
+*    Date: Jan 12 '11 at 18:25
+*    Code version:  
+*    Availability:  http://stackoverflow.com/questions/3140992/read-out-time-length-duration-of-an-mp3-song-in-java
+*    Modified:  Code refactored ()
+*****************************************************/                                                           
 	public Long getSongFileLength()
 	{
 		System.out.println("manager.getSongFileLength() CALLED");
 		Long duration = null;
 		try
 		{
-			AudioFileFormat baseFileFormat = new MpegAudioFileReader().getAudioFileFormat(file);   // this code is from http://stackoverflow.com/questions/3140992/read-out-time-length-duration-of-an-mp3-song-in-java
+			AudioFileFormat baseFileFormat = new MpegAudioFileReader().getAudioFileFormat(file); 
 			Map properties = baseFileFormat.properties();
         	duration = (Long) properties.get("duration");
         	return duration;
