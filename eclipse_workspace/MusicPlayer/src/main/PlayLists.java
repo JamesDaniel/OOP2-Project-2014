@@ -1,0 +1,69 @@
+package main;
+//PlayLists.java
+//https://www.youtube.com/watch?v=Bws9aQuAcdg
+//Java Programming Tutorial - 80 - Writing to Files
+/**This is an instantiable PlayLists class.
+@author James McGarr
+@version 1.0 */ 
+
+import java.io.*;
+import java.lang.*;
+import java.util.*;
+
+public class PlayLists {
+  	private Formatter x;
+  	private MusicManager manager;
+  	
+  	/** multi argument constructor method
+  	*@param manager The object which this object was instantiated from. */
+  	PlayLists(MusicManager manager)
+  	{
+  		this.manager = manager;
+  		//System.out.println(manager.getFile().getPath());
+  	}
+  	/** mutator method to create or open a .txt file
+  	 **/
+
+      
+	/*****************************************************
+*    Title:  Java Programming Tutorial - 80 - Writing to Files , line 36-67
+*    Author: thenewboston
+*    Site owner/sponsor:  youtube.com
+*    Date: Uploaded on Oct 23, 2009
+*    Code version:  
+*    Availability:  https://www.youtube.com/watch?v=Bws9aQuAcdg
+*    Modified:  Code refactored (code used)
+*****************************************************/
+  	public void openFile(){
+  		try{
+  			x = new Formatter("memory/song.txt");
+  		}
+  		catch (Exception e)
+  		{
+  			System.out.println("Failed to write song file.");
+  		}
+  	}
+  	/** mutator method to add a record to the text file created by openFile() method
+  	 */
+  	public void addRecords(){
+  		x.format("%s", manager.getFile().getPath());
+  	}
+  	/** mutator method to close a file after using the addRecords() method
+  	 */
+  	public void closeFile(){
+  		x.close();
+  	}
+  	public static File readFile(){
+  		Scanner y = null;
+  		try
+  		{
+  			y = new Scanner(new File("memory/song.txt"));
+  		}
+  		catch (Exception ex){}
+  		if (y.hasNext()){
+  			return new File(y.nextLine());
+  		}
+  		else
+  			return null;
+  	}
+}//end class
