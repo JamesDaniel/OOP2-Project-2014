@@ -29,7 +29,7 @@ public class Gui extends JFrame{
 		
 	/*****************************************************
 *    Title:   Howto make JButton with simple flat style? , line 38-40
-*    Author: André Luiz Clinio
+*    Author: Andrï¿½ Luiz Clinio
 *    Site owner/sponsor:  http://stackoverflow.com/
 *    Date:  Jan 21 '13 at 19:00
 *    Code version:  
@@ -111,8 +111,8 @@ public class Gui extends JFrame{
 	public void readInImages(){    
 	    try
 	    {
-	    	image1 = new ImageIcon("icons/button_blue_play_copy.png");  
-			image2 = new ImageIcon("icons/button_blue_stop_copy.png");  
+	    	image1 = new ImageIcon("MusicPlayer/icons/button_blue_play_copy.png");
+			image2 = new ImageIcon("MusicPlayer/icons/button_blue_stop_copy.png");
 	    }
 	    catch (Exception ex)
 	    {

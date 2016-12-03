@@ -36,7 +36,7 @@ public class PlayLists {
 *****************************************************/
   	public void openFile(){
   		try{
-  			x = new Formatter("memory/song.txt");
+  			x = new Formatter("MusicPlayer/memory/song.txt");
   		}
   		catch (Exception e)
   		{
@@ -57,7 +57,7 @@ public class PlayLists {
   		Scanner y = null;
   		try
   		{
-  			y = new Scanner(new File("memory/song.txt"));
+  			y = new Scanner(new File("MusicPlayer/memory/song.txt"));
   		}
   		catch (Exception ex){}
   		if (y.hasNext()){
